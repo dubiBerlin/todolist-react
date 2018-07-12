@@ -4,24 +4,26 @@ import './App.css';
 import Button from "./Button";
 import Button2 from "./Button2";
 import Panel from "./Panel";
+import List from "./components/List";
+import TodoAddBtn from "./components/TodoAddBtn";
 
 class App extends Component {
     constructor(props) {
         super(props);
 
-        this.myarray = ["Kochen", "Seite bauen", "react lernen", "php symphony", "java", "react-native", "What is an Array", "servlets", "bootstrap", "nodejs", "js"];
+        this.myarray = [{ id: 7, title: "Kochen" }, { id: 8, title: "Seite bauen" }, { id: 9, title: "react lernen" }, { id: 10, title: "php symphony" }, { id: 11, title: "java" }, { id: 12, title: "react-native" }, { id: 13, title: "What is an Array" }, { id: 14, title: "servlets" }, { id: 15, title: "bootstrap" }, { id: 16, title: "nodejs" }, { id: 17, title: "js" }];
 
 
         this.state = {
             count: 0,
             inputVal: "",
             todos: [
-                "Obst kaufen",
-                "Zur Bank gehen",
-                "Training",
-                "Programmieren",
-                "Whey protein kaufen",
-                "Wohnung sauber machen"
+                { id: 1, title: "Obst kaufen" },
+                { id: 2, title: "Zur Bank gehen" },
+                { id: 3, title: "Training" },
+                { id: 4, title: "Programmieren" },
+                { id: 5, title: "Whey protein kaufen" },
+                { id: 6, title: "Wohnung sauber machen" }
             ]
         }
         this.addTodo = this.addTodo.bind(this);
@@ -33,9 +35,14 @@ class App extends Component {
         var cnt = this.state.count + 1;
         var todosTemp = this.state.todos;
         if (cnt < this.myarray.length) {
+            console.log(this.myarray[cnt]);
             todosTemp.push(this.myarray[cnt]);
         } else {
-            todosTemp.push("React redux " + cnt);
+            const todo = {
+                id: cnt + 17,
+                title: "React redux " + cnt
+            }
+            todosTemp.push(todo);
         }
 
 
@@ -49,8 +56,7 @@ class App extends Component {
     render() {
 
         const liste = this.state.todos.map((todo) => {
-            console.log(todo);
-            return (<li className="list-group-item">{todo}</li>)
+            return (<li key={todo.id} className="list-group-item">{todo.title}</li>)
         }
         );
 
@@ -60,18 +66,11 @@ class App extends Component {
                     <div className="row">
                         <h2>Todo</h2>
                     </div>
-                    <div className="row">
-                        <button type="button" className="btn btn-success" onClick={this.addTodo}>Add todo</button>
-                    </div>
-                    <div className="row">
-                        <label for="inputdefault">Small input</label>
-                        <input className="form-control form-control-sm" value={this.state.inputVal} id="inputdefault" type="text" />
-                    </div >
-                    <div className="row">
-                        <ul className="list-group">
-                            {liste}
-                        </ul>
-                    </div>
+
+                    <TodoAddBtn typ="button" onAdd={this.addTodo} name="Add ToDo" klasse="btn btn-success" />
+                    <Panel titel="Liste">
+                        <List todos={liste} />
+                    </Panel>
                 </div>
             </div>
         );
