@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import panelCss from "./css/panel.css";
+import PropTypes from 'prop-types';
 
 class Panel extends Component {
     render() {
@@ -14,6 +15,10 @@ class Panel extends Component {
             </div>);
 
     }
+}
+
+Panel.propTypes = {
+    titel: PropTypes.string.isRequired
 }
 
 export default Panel;

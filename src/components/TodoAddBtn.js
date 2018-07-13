@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import buttonCss from "../css/button.css";
+import PropTypes from 'prop-types';
 
 class TodoAddBtn extends Component {
 
@@ -52,6 +53,13 @@ class TodoAddBtn extends Component {
         </div>
         )
     }
+}
+
+
+TodoAddBtn.propTypes = {
+    onAddTodo: PropTypes.func.isRequired,
+
+    onTodoInputChange: PropTypes.func.isRequired
 }
 
 export default TodoAddBtn;
