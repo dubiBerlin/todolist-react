@@ -4,3 +4,8 @@
 .bg1{
 background-color: orange;
 }
+
+
+.hideBtn{
+    visibility: hidden;
+}

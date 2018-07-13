@@ -6,6 +6,8 @@ import Button2 from "./Button2";
 import Panel from "./Panel";
 import List from "./components/List";
 import TodoAddBtn from "./components/TodoAddBtn";
+import TodoAddInput from "./components/TodoAddInput";
+
 
 class App extends Component {
     constructor(props) {
@@ -30,20 +32,18 @@ class App extends Component {
     }
 
 
-    addTodo() {
+    addTodo(newTodo) {
         console.log("addTodo")
         var cnt = this.state.count + 1;
-        var todosTemp = this.state.todos;
-        if (cnt < this.myarray.length) {
-            console.log(this.myarray[cnt]);
-            todosTemp.push(this.myarray[cnt]);
-        } else {
-            const todo = {
-                id: cnt + 17,
-                title: "React redux " + cnt
-            }
-            todosTemp.push(todo);
+
+        const todo = {
+            id: cnt + 17,
+            title: newTodo
         }
+
+
+        var todosTemp = this.state.todos;
+        todosTemp.push(todo);
 
 
         this.setState({
@@ -66,7 +66,6 @@ class App extends Component {
                     <div className="row">
                         <h2>Todo</h2>
                     </div>
-
                     <TodoAddBtn typ="button" onAdd={this.addTodo} name="Add ToDo" klasse="btn btn-success" />
                     <Panel titel="Liste">
                         <List todos={liste} />

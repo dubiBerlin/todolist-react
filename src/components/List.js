@@ -24,7 +24,7 @@ class List extends Component {
 
     render() {
         return (
-            <div class="row">
+            <div className="row">
                 <ul className="list-group">
                     {this.props.todos}
                 </ul>
