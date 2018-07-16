@@ -29,26 +29,34 @@ class App extends Component {
             ]
         }
         this.addTodo = this.addTodo.bind(this);
+        this.deleteAllTodos = this.deleteAllTodos.bind(this);
     }
 
 
     addTodo(newTodo) {
-        console.log("addTodo")
-        var cnt = this.state.count + 1;
+        if (newTodo) {
+            var cnt = this.state.count + 1;
+            const todo = {
+                id: cnt + 17,
+                title: newTodo
+            }
 
-        const todo = {
-            id: cnt + 17,
-            title: newTodo
+
+            var todosTemp = this.state.todos;
+            todosTemp.push(todo);
+
+
+            this.setState({
+                todos: todosTemp,
+                count: cnt
+            });
         }
+    }
 
-
-        var todosTemp = this.state.todos;
-        todosTemp.push(todo);
-
-
+    deleteAllTodos() {
         this.setState({
-            todos: todosTemp,
-            count: cnt
+            todos: [],
+            count: 0
         });
     }
 
@@ -66,7 +74,7 @@ class App extends Component {
                     <div className="row">
                         <h2>Todo</h2>
                     </div>
-                    <TodoAddBtn typ="button" onAdd={this.addTodo} name="Add ToDo" klasse="btn btn-success" />
+                    <TodoAddBtn typ="button" onAdd={this.addTodo} onDel={this.deleteAllTodos} name="Add ToDo" klasse="btn btn-success" />
                     <Panel titel="Liste">
                         <List todos={liste} />
                     </Panel>
@@ -75,5 +83,7 @@ class App extends Component {
         );
     }
 }
+
+
 
 export default App;

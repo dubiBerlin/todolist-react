@@ -24,9 +24,10 @@ class List extends Component {
 
 
     render() {
+
         return (
             <div className="row">
-                <ul className="list-group">
+                <ul className="list-group" style={{ width: 700 }}>
                     {this.props.todos}
                 </ul>
             </div>);
