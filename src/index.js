@@ -1,24 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import Klickzaehler from './Klickzaehler3';
 import registerServiceWorker from './registerServiceWorker';
 import counter from "./reducers/index";
+import App from "./App";
+import { incrementCounter } from "./actions/index";
 
 import { createStore } from "redux";
 
+// den Reducer in den Store anmelden
 let store = createStore(counter);
-console.log(store.getState());
 
-store.dispatch({ type: "INCREMENT" });
-store.dispatch({ type: "INCREMENT" });
-store.dispatch({ type: "INCREMENT" });
-store.dispatch({ type: "INCREMENT" });
-console.log(store.getState());
+const render = () => {
 
+    ReactDOM.render(
+        <Klickzaehler
+            count={store.getState()}
+            onIncrement={() => { store.dispatch(incrementCounter()); }}
 
-ReactDOM.render(
-    <App />,
-    document.getElementById('root')
-);
+        />,
+        document.getElementById('root')
+    );
+
+}
+
+render();
+store.subscribe(render);
 registerServiceWorker();
