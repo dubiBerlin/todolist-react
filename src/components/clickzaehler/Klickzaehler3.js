@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import Button from "./Button";
-import Button2 from "./Button2";
-import Panel from "./Panel";
+import '../../App.css';
+import Button from "../../Button";
+import Button2 from "../../Button2";
+import Panel from "../../Panel";
 import { connect } from "react-redux";
-import { incrementCounter } from "./actions/index";
+import { incrementCounter } from "../../actions/index";
 
 class Klickzaehler extends Component {
     constructor(props) {

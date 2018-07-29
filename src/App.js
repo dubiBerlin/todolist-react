@@ -4,9 +4,9 @@ import './App.css';
 import Button from "./Button";
 import Button2 from "./Button2";
 import Panel from "./Panel";
-import List from "./components/List";
-import TodoAddBtn from "./components/TodoAddBtn";
-import TodoAddInput from "./components/TodoAddInput";
+import List from "./components/todolist/List";
+import TodoAddBtn from "./components/todolist/TodoAddBtn";
+import TodoAddInput from "./components/todolist/TodoAddInput";
 
 
 class App extends Component {

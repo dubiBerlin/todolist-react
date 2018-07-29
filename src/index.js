@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Klickzaehler from './Klickzaehler3';
+import Klickzaehler from './components/clickzaehler/Klickzaehler3';
 import registerServiceWorker from './registerServiceWorker';
 import counter from "./reducers/index";
 import App from "./App";
