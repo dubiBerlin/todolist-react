@@ -5,9 +5,10 @@ import Klickzaehler from './components/clickzaehler/Klickzaehler3';
 import registerServiceWorker from './registerServiceWorker';
 import counter from "./reducers/index";
 import App from "./App";
-import { connect } from "react-redux";
+import { connect, Provider } from "react-redux"; 
 
 import { createStore } from "redux";
+import Todolist from './components/clickzaehler/Todolist';
 
 // den Reducer in den Store anmelden
 let store = createStore(counter);
@@ -16,9 +17,12 @@ let store = createStore(counter);
 
 
 ReactDOM.render(
-    <Klickzaehler
-        store={store}
-    />,
+    <Provider store={store} >
+    <div>
+        <Klickzaehler/>
+        <Todolist />
+    </div>
+    </Provider >,
     document.getElementById('root')
 );
 registerServiceWorker();

@@ -32,7 +32,7 @@ class Klickzaehler extends Component {
 
 const mapStateToProps = state => {
     return {
-        count: state
+        count: state.counter
     }
 }
 
