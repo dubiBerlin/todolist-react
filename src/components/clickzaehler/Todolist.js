@@ -8,10 +8,14 @@ import { connect } from "react-redux";
 class Todolist extends Component{
 
 render(){
-    console.log(this.props.todos)
-    var todos = this.props.todos.map((todo)=> {
-        return (<li key={todo.id}>{todo.title}</li>)
-    })
+    console.log("todos", this.props);
+    var todos;
+    if(this.props.todos!=undefined){
+        todos = this.props.todos.map((todo)=> {
+            return (<li key={todo.id}>{todo.title}</li>)
+        })
+    }
+  
 
     return(
         <div className="row">
@@ -28,7 +32,6 @@ render(){
 const mapStateToProps = state => {
     return { todos: state.todos}
 };
-
 const mapDispatchToProps={}
 
-export default connect(mapStateToProps, mapDispatchToProps) (Todolist);
+export default connect(mapStateToProps,mapDispatchToProps) (Todolist);

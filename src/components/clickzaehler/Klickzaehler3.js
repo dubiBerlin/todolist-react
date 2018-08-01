@@ -13,11 +13,12 @@ class Klickzaehler extends Component {
 
 
     render() {
+        console.log(this.props);
         return (
             <div className="App">
                 <div className="container">
                     <div className="row">
-                        <h1>Klickzähler: {this.props.count}</h1>
+                        <h1>Klickzähler: {this.props.value}</h1>
                     </div>
                     <div className="row">
                         <button type="button" onClick={this.props.onIncrement} className="btn btn-success">Klicken</button>
@@ -28,11 +29,9 @@ class Klickzaehler extends Component {
     }
 }
 
-
-
 const mapStateToProps = state => {
     return {
-        count: state.counter
+        value: state.counter
     }
 }
 
