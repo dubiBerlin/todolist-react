@@ -4,14 +4,13 @@ import Button from "../../Button";
 import Button2 from "../../Button2";
 import Panel from "../../Panel";
 import { connect } from "react-redux";
-import { incrementCounter } from "../../actions/index";
+import { incrementCounter, addTodo } from "../../actions/index"; // action in Komponente importieren
 
 class Klickzaehler extends Component {
     constructor(props) {
         super(props);
+        
     }
-
-
     render() {
         console.log(this.props);
         return (
@@ -21,7 +20,12 @@ class Klickzaehler extends Component {
                         <h1>Klickzähler: {this.props.value}</h1>
                     </div>
                     <div className="row">
-                        <button type="button" onClick={this.props.onIncrement} className="btn btn-success">Klicken</button>
+                        <div className="col-md-6">
+                            <button type="button" onClick={this.props.onIncrement} className="btn btn-success">Klicken</button>
+                        </div>
+                        <div className="col-md-6">   
+                            <button type="button" onClick={()=>{this.props.addTodo("Hello")}}  className="btn btn-success">Add Todo</button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -36,7 +40,8 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = {
-    onIncrement: incrementCounter
+    onIncrement: incrementCounter,
+    addTodo: addTodo
 }
 
 

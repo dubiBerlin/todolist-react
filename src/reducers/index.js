@@ -1,5 +1,6 @@
 /**  **/
-import todos from "./todos";
+import {todos} from "./todos";
+import {addTodo} from "./todos";
 import counter from "./counter";
 
 

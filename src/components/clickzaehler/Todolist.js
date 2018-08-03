@@ -30,6 +30,7 @@ render(){
 }
 
 const mapStateToProps = state => {
+    console.log("mapStateToProps", state);
     return { todos: state.todos}
 };
 const mapDispatchToProps={}
