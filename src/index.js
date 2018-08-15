@@ -8,6 +8,7 @@ import { connect, Provider } from "react-redux";
 
 import { createStore } from "redux";
 import Todolist from './components/clickzaehler/Todolist';
+import TodoAdd from "./components/clickzaehler/TodoAdd";
 import reduce from './reducers/index';
 
 // den Reducer in den Store anmelden
@@ -15,7 +16,7 @@ let store = createStore(reduce);
 
 ReactDOM.render(
     <Provider store={store} >
-    <div>
+    <div className="container">
         <Klickzaehler/>
         <Todolist />
     </div>

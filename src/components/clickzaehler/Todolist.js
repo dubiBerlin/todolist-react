@@ -3,6 +3,7 @@ import buttonCss from "../../css/button.css";
 import Panel from "../../Panel";
 import PropTypes from 'prop-types';
 import { connect } from "react-redux";
+import TodoAdd from "./TodoAdd";
 
 
 class Todolist extends Component{
@@ -22,6 +23,7 @@ render(){
                 <ul className="list-group" style={{ width: 700 }}>
                 {todos}
                 </ul>
+        <TodoAdd onAdd={()=>{}}/>
             </div>
     )
 }
@@ -30,7 +32,6 @@ render(){
 }
 
 const mapStateToProps = state => {
-    console.log("mapStateToProps", state);
     return { todos: state.todos}
 };
 const mapDispatchToProps={}

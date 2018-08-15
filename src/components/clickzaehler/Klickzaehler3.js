@@ -20,11 +20,8 @@ class Klickzaehler extends Component {
                         <h1>Klickzähler: {this.props.value}</h1>
                     </div>
                     <div className="row">
-                        <div className="col-md-6">
-                            <button type="button" onClick={this.props.onIncrement} className="btn btn-success">Klicken</button>
-                        </div>
-                        <div className="col-md-6">   
-                            <button type="button" onClick={()=>{this.props.addTodo("Hello")}}  className="btn btn-success">Add Todo</button>
+                        <div className="col-md-12">
+                            <button type="button" onClick={this.props.onIncrement} className="btn btn-success">Zähler</button>
                         </div>
                     </div>
                 </div>
